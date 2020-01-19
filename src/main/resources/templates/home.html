@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>DashBoard</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #ededed;">
+	<div style="background-color: #337ab7; height: 50px;"></div>
+	<div class="container-fluid" style="margin-top: 30px;">
+	 <span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+        <a href="/login"> logout</a>
+		<div class="row col-lg-4 col-lg-offset-4"
+			style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
+			
+			<form>
+				<h3 class="form-signin-heading">Complete Your Registration</h3>
+				<a href="/address"> Address</a>
+				<a href="/identity"> Identity</a>
+				<a href="/bank"> Bank account</a>
+			</form>
+			
+		</div>
+	</div>
+</body>
+</html>

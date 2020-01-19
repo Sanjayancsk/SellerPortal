@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>DashBoard</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #ededed;">
+	<div style="background-color: #337ab7; height: 50px;"></div>
+	<div class="container-fluid" style="margin-top: 30px;">
+<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+        <a href="/login"> logout</a>
+		<div class="row col-lg-4 col-lg-offset-4"
+			style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
+			<form autocomplete="off" action="#" th:action="@{/bank}"
+				th:object="${user}" method="post" class="form-signin" role="form">
+				<h3 class="form-signin-heading">Registration Bank account</h3>
+				<div class="">
+					<label>Account name        </label>
+						<input type="text" th:field="*{acc}" placeholder="Acc No"
+							class="form-control" />
+					</div>
+					<div class="">
+					<label>Account number       </label>
+						<input type="text" th:field="*{accno}" placeholder="Acc Name"
+							class="form-control" />
+					</div>
+					<div class="">
+					<label>Bank Name        </label>
+						<input type="text" th:field="*{bank}" placeholder="Bank name"
+							class="form-control" />
+					</div>
+					<div class="">
+					<label>SWIFT code        </label>
+						<input type="text" th:field="*{swift}" placeholder="SWIFT code"
+							class="form-control" />
+					</div>
+					<br />
+					<div class="form-group">
+					<div class="">
+						<button type="submit" class="btn btn-primary btn-block">Update 
+							Bank</button>
+					</div>
+				</div>
+					<br />
+					<a href="/home"> Back to home</a>
+			</form>
+			
+		</div>
+	</div>
+</body>
+</html>

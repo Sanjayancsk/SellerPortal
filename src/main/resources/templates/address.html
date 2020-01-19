@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>DashBoard</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #ededed;">
+	<div style="background-color: #337ab7; height: 50px;"></div>
+	<div class="container-fluid" style="margin-top: 30px;">
+<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+       <a href="/login"> logout</a>
+		<div class="row col-lg-4 col-lg-offset-4"
+			style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
+			<form autocomplete="off" action="#" th:action="@{/update}"
+				th:object="${user}" method="post" class="form-signin" role="form">
+				<h3 class="form-signin-heading">Registration Address</h3>
+				<div class="">
+					<label>Line1        </label>
+						<input type="text" th:field="*{line1}" placeholder="Line1"
+							class="form-control" />
+					</div>
+					<div class="">
+					<label>Line2         </label>
+						<input type="text" th:field="*{line2}" placeholder="Line2"
+							class="form-control" />
+					</div>
+					<div class="">
+					<label>City         </label>
+						<input type="text" th:field="*{city}" placeholder="City"
+							class="form-control" />
+					</div>
+					<div class="">
+					<label>Post Code         </label>
+						<input type="text" th:field="*{code}" placeholder="PostCode"
+							class="form-control" />
+					</div>
+					<br />
+					<div class="form-group">
+					<div class="">
+						<button type="submit" class="btn btn-primary btn-block">Update 
+							User</button>
+					</div>
+				</div>
+				<br />
+				<a href="/identity"> Update identity</a>
+			</form>
+			
+		</div>
+	</div>
+</body>
+</html>
